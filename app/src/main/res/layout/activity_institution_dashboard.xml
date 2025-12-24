@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F1F8E9">
 
     <LinearLayout
@@ -23,7 +24,8 @@
             android:layout_height="wrap_content" />
 
         <!-- Add Variety -->
-        <Button
+        <com.google.android.material.button.MaterialButton
+            app:backgroundTint="@null"
             android:id="@+id/btnAddVariety"
             android:text="Add Hybrid / Improved Variety"
             android:textColor="#FFFFFF"
@@ -33,7 +35,8 @@
             android:layout_height="wrap_content" />
 
         <!-- View Crop Database -->
-        <Button
+        <com.google.android.material.button.MaterialButton
+            app:backgroundTint="@null"
             android:id="@+id/btnViewCrops"
             android:text="View Crop Database"
             android:textColor="#FFFFFF"
@@ -43,7 +46,8 @@
             android:layout_height="wrap_content" />
 
         <!-- Profile -->
-        <Button
+        <com.google.android.material.button.MaterialButton
+            app:backgroundTint="@null"
             android:id="@+id/btnProfile"
             android:text="Institution Profile"
             android:textColor="#FFFFFF"
@@ -53,7 +57,8 @@
             android:layout_height="wrap_content" />
 
         <!-- Logout -->
-        <Button
+        <com.google.android.material.button.MaterialButton
+            app:backgroundTint="@null"
             android:id="@+id/btnLogout"
             android:text="Logout"
             android:textColor="#FFFFFF"

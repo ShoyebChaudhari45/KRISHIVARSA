@@ -5,10 +5,9 @@ import android.content.SharedPreferences;
 
 public class SessionManager {
 
-    private static final String PREF_NAME = "KrishiVarsaSession";
+    private static final String PREF_NAME = "krishi_session";
     private static final String KEY_TOKEN = "token";
     private static final String KEY_ROLE = "role";
-    private static final String KEY_LOGIN = "isLoggedIn";
 
     SharedPreferences pref;
     SharedPreferences.Editor editor;
@@ -18,29 +17,26 @@ public class SessionManager {
         editor = pref.edit();
     }
 
-    // Save login session
     public void saveLogin(String token, String role) {
         editor.putString(KEY_TOKEN, token);
         editor.putString(KEY_ROLE, role);
-        editor.putBoolean(KEY_LOGIN, true);
         editor.apply();
-    }
-
-    // Logout
-    public void logout() {
-        editor.clear();
-        editor.apply();
-    }
-
-    public boolean isLoggedIn() {
-        return pref.getBoolean(KEY_LOGIN, false);
-    }
-
-    public String getRole() {
-        return pref.getString(KEY_ROLE, "");
     }
 
     public String getToken() {
-        return pref.getString(KEY_TOKEN, "");
+        return pref.getString(KEY_TOKEN, null);
+    }
+
+    public String getRole() {
+        return pref.getString(KEY_ROLE, null);
+    }
+
+    public boolean isLoggedIn() {
+        return pref.getString(KEY_TOKEN, null) != null;
+    }
+
+    public void logout() {
+        editor.clear();
+        editor.apply();
     }
 }

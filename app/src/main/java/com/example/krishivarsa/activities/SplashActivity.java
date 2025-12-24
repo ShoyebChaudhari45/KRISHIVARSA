@@ -7,6 +7,7 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.krishivarsa.R;
+import com.example.krishivarsa.utils.SessionManager;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -16,15 +17,35 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+
+        SessionManager sessionManager = new SessionManager(this);
 
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(
-                    SplashActivity.this,
-                    PublicHomeActivity.class
-            );
-            startActivity(intent);
+
+            if (sessionManager.isLoggedIn()) {
+
+                String role = sessionManager.getRole();
+
+                if ("ADMIN".equals(role)) {
+                    startActivity(new Intent(this,
+                            com.example.krishivarsa.activities.admin.AdminDashboardActivity.class));
+                } else if ("FARMER".equals(role)) {
+                    startActivity(new Intent(this,
+                            com.example.krishivarsa.activities.farmer.FarmerDashboardActivity.class));
+                } else if ("INSTITUTION".equals(role)) {
+                    startActivity(new Intent(this,
+                            com.example.krishivarsa.activities.institution.InstitutionDashboardActivity.class));
+                }
+
+            } else {
+                // Not logged in → public view
+                startActivity(new Intent(this, PublicHomeActivity.class));
+            }
+
             finish();
-        }, SPLASH_TIME);
+
+        }, 2000); // 2 sec splash
+
+        setContentView(R.layout.activity_splash);
     }
 }

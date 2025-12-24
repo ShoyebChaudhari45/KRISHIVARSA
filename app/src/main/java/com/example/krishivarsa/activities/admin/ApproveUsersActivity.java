@@ -1,39 +1,95 @@
 package com.example.krishivarsa.activities.admin;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.krishivarsa.R;
-import com.example.krishivarsa.adapters.UserApprovalAdapter;
-import com.example.krishivarsa.models.User;
+import com.example.krishivarsa.adapters.PendingUserAdapter;
+import com.example.krishivarsa.models.PendingUser;
+import com.example.krishivarsa.network.ApiClient;
+import com.example.krishivarsa.network.ApiService;
+import com.example.krishivarsa.utils.SessionManager;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ApproveUsersActivity extends AppCompatActivity {
 
-    RecyclerView recyclerUsers;
-    UserApprovalAdapter adapter;
-    List<User> pendingUsers;
+    RecyclerView recycler;
+    TextView tvEmpty;
+
+    SessionManager sessionManager;
+    ApiService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_approve_users);
 
-        recyclerUsers = findViewById(R.id.recyclerUsers);
-        recyclerUsers.setLayoutManager(new LinearLayoutManager(this));
+        tvEmpty = findViewById(R.id.tvEmpty);
+        recycler = findViewById(R.id.recyclerPending);
 
-        pendingUsers = new ArrayList<>();
+        recycler.setLayoutManager(new LinearLayoutManager(this));
 
-        // 🔧 Dummy pending users (API later)
-        pendingUsers.add(new User(1, "Ramesh Patil", "Farmer", "Maharashtra"));
-        pendingUsers.add(new User(2, "Agro Seed Lab", "Institution", "Punjab"));
+        sessionManager = new SessionManager(this);
+        apiService = ApiClient.getClient().create(ApiService.class);
 
-        adapter = new UserApprovalAdapter(this, pendingUsers);
-        recyclerUsers.setAdapter(adapter);
+        loadPendingUsers();
+    }
+
+    private void loadPendingUsers() {
+
+        apiService.getPendingUsers("Bearer " + sessionManager.getToken())
+                .enqueue(new Callback<List<PendingUser>>() {
+
+                    @Override
+                    public void onResponse(Call<List<PendingUser>> call,
+                                           Response<List<PendingUser>> response) {
+
+                        if (response.isSuccessful() && response.body() != null) {
+
+                            if (response.body().isEmpty()) {
+                                tvEmpty.setVisibility(View.VISIBLE);
+                                recycler.setVisibility(View.GONE);
+                            } else {
+                                tvEmpty.setVisibility(View.GONE);
+                                recycler.setVisibility(View.VISIBLE);
+
+                                recycler.setAdapter(
+                                        new PendingUserAdapter(
+                                                ApproveUsersActivity.this,
+                                                response.body(),
+                                                sessionManager.getToken()
+                                        )
+                                );
+                            }
+
+                        } else {
+                            Toast.makeText(
+                                    ApproveUsersActivity.this,
+                                    "Failed to load users",
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<PendingUser>> call, Throwable t) {
+                        Toast.makeText(
+                                ApproveUsersActivity.this,
+                                "Error: " + t.getMessage(),
+                                Toast.LENGTH_LONG
+                        ).show();
+                    }
+                });
     }
 }

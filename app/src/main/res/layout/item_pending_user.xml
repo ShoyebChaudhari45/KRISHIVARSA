@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
     android:elevation="4dp"
+    app:cardCornerRadius="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -16,7 +19,18 @@
             android:id="@+id/tvName"
             android:text="User Name"
             android:textStyle="bold"
+            android:textSize="16sp"
             android:textColor="#2E7D32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Email -->
+        <TextView
+            android:id="@+id/tvEmail"
+            android:text="email@example.com"
+            android:textSize="14sp"
+            android:textColor="#555555"
+            android:layout_marginTop="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -24,13 +38,17 @@
         <TextView
             android:id="@+id/tvRole"
             android:text="Role: Farmer"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <!-- Location -->
         <TextView
             android:id="@+id/tvLocation"
-            android:text="Location"
+            android:text="Village, District, State"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -38,27 +56,28 @@
         <LinearLayout
             android:orientation="horizontal"
             android:gravity="end"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnApprove"
                 android:text="Approve"
                 android:textColor="#FFFFFF"
                 android:background="#2E7D32"
+                app:backgroundTint="@null"
                 android:layout_marginEnd="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnReject"
                 android:text="Reject"
                 android:textColor="#FFFFFF"
                 android:background="#B71C1C"
+                app:backgroundTint="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
         </LinearLayout>
 
     </LinearLayout>

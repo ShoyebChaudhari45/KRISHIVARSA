@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1F8E9">
@@ -10,9 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Title -->
         <TextView
-            android:id="@+id/tvTitle"
             android:text="Farmer Registration"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -22,24 +20,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- Name -->
+        <!-- Full Name -->
         <EditText
             android:id="@+id/etName"
             android:hint="Full Name"
-            android:padding="12dp"
             android:background="@drawable/bg_card"
-            android:layout_marginBottom="12dp"
+            android:padding="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- Contact -->
+        <!-- Mobile -->
         <EditText
-            android:id="@+id/etContact"
-            android:hint="Contact Number"
+            android:id="@+id/etMobile"
+            android:hint="Mobile Number"
             android:inputType="phone"
-            android:padding="12dp"
             android:background="@drawable/bg_card"
-            android:layout_marginBottom="12dp"
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -48,19 +45,85 @@
             android:id="@+id/etEmail"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:padding="12dp"
             android:background="@drawable/bg_card"
-            android:layout_marginBottom="12dp"
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <!-- Password -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#2E7D32">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:background="@drawable/bg_card"
+                android:padding="12dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Age -->
+        <EditText
+            android:id="@+id/etAge"
+            android:hint="Age"
+            android:inputType="number"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Gender -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textStyle="bold"
+            android:textColor="#1B5E20"
+            android:layout_marginTop="12dp" />
+
+        <RadioGroup
+            android:id="@+id/rgGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female" />
+
+            <RadioButton
+                android:id="@+id/rbOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other" />
+
+        </RadioGroup>
 
         <!-- Village -->
         <EditText
             android:id="@+id/etVillage"
             android:hint="Village"
-            android:padding="12dp"
             android:background="@drawable/bg_card"
-            android:layout_marginBottom="12dp"
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -68,9 +131,9 @@
         <EditText
             android:id="@+id/etDistrict"
             android:hint="District"
-            android:padding="12dp"
             android:background="@drawable/bg_card"
-            android:layout_marginBottom="12dp"
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -78,20 +141,75 @@
         <EditText
             android:id="@+id/etState"
             android:hint="State"
-            android:padding="12dp"
             android:background="@drawable/bg_card"
-            android:layout_marginBottom="20dp"
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- Submit Button -->
-        <Button
+        <!-- Pincode -->
+        <EditText
+            android:id="@+id/etPincode"
+            android:hint="Pincode"
+            android:inputType="number"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Farming Experience -->
+        <EditText
+            android:id="@+id/etExperience"
+            android:hint="Farming Experience (years)"
+            android:inputType="number"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Land Size -->
+        <EditText
+            android:id="@+id/etLand"
+            android:hint="Land Size (acres)"
+            android:inputType="number"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Crops -->
+        <EditText
+            android:id="@+id/etCrops"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Crops Grown"
+            android:focusable="false"
+            android:clickable="true"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginTop="10dp" />
+
+        <!-- Submit -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSubmit"
             android:text="Submit Registration"
             android:textColor="#FFFFFF"
             android:background="@drawable/bg_button_green"
+            app:backgroundTint="@null"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:id="@+id/progressRegister"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="16dp" />
 
     </LinearLayout>
 </ScrollView>

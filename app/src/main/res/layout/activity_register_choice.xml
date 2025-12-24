@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="24dp"
     android:gravity="center"
@@ -20,10 +21,11 @@
         android:layout_height="wrap_content" />
 
     <!-- Farmer Button -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnFarmer"
         android:text="Farmer"
         android:textSize="16sp"
+        app:backgroundTint="@null"
         android:textColor="#FFFFFF"
         android:background="@drawable/bg_button_green"
         android:layout_marginBottom="16dp"
@@ -31,7 +33,8 @@
         android:layout_height="wrap_content" />
 
     <!-- Institution Button -->
-    <Button
+    <com.google.android.material.button.MaterialButton
+        app:backgroundTint="@null"
         android:id="@+id/btnInstitution"
         android:text="Institution"
         android:textSize="16sp"

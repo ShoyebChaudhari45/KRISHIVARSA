@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F1F8E9">
 
     <LinearLayout
@@ -46,7 +47,8 @@
             android:layout_height="wrap_content" />
 
         <!-- Approvals -->
-        <Button
+        <com.google.android.material.button.MaterialButton
+        app:backgroundTint="@null"
             android:id="@+id/btnApproveUsers"
             android:text="Approve Users"
             android:textColor="#FFFFFF"
@@ -56,7 +58,8 @@
             android:layout_height="wrap_content" />
 
         <!-- Manage Entries -->
-        <Button
+        <com.google.android.material.button.MaterialButton
+            app:backgroundTint="@null"
             android:id="@+id/btnManageEntries"
             android:text="Manage Crop Entries"
             android:textColor="#FFFFFF"
@@ -66,7 +69,8 @@
             android:layout_height="wrap_content" />
 
         <!-- Analytics -->
-        <Button
+        <com.google.android.material.button.MaterialButton
+            app:backgroundTint="@null"
             android:id="@+id/btnAnalytics"
             android:text="View Analytics"
             android:textColor="#FFFFFF"
@@ -79,7 +83,8 @@
 
 
         <!-- Logout -->
-        <Button
+        <com.google.android.material.button.MaterialButton
+            app:backgroundTint="@null"
             android:id="@+id/btnLogout"
             android:text="Logout"
             android:textColor="#FFFFFF"

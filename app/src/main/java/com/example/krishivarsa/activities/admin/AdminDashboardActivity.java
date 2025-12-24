@@ -51,9 +51,13 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
 
         btnLogout.setOnClickListener(v -> {
+
             sessionManager.logout();
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();
+
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         });
+
     }
 }
