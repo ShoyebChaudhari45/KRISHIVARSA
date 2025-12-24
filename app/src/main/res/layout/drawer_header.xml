@@ -9,7 +9,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:src="@drawable/ic_leaf_image"
+        android:src="@drawable/ic_leaf_i"
         android:layout_width="64dp"
         android:layout_height="64dp"
         app:tint="#FFFFFF" />

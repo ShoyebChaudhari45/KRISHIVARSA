@@ -8,29 +8,25 @@
     <!-- MAIN CONTENT -->
     <LinearLayout
         android:orientation="vertical"
-        android:background="#F1F8E9"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Top Bar -->
-        <TextView
-            android:id="@+id/tvTitle"
-            android:text="Krishi Varsa – Crop Database"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:background="#2E7D32"
-            android:gravity="center"
-            android:padding="16dp"
+        <!-- TOOLBAR -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="56dp"
+            android:background="#2E7D32"
+            app:title="Krishi Varsa – Crop Database"
+            app:titleTextColor="#FFFFFF" />
 
         <!-- RecyclerView -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerCrops"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:background="#F1F8E9" />
 
     </LinearLayout>
 
@@ -40,7 +36,6 @@
         android:layout_gravity="start"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
         app:headerLayout="@layout/drawer_header"
         app:menu="@menu/menu_drawer" />
 

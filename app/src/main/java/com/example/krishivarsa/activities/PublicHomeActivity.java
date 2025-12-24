@@ -2,11 +2,10 @@ package com.example.krishivarsa.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,6 +23,7 @@ public class PublicHomeActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     RecyclerView recyclerCrops;
+    Toolbar toolbar;
 
     CropAdapter cropAdapter;
     List<Crop> cropList;
@@ -36,6 +36,22 @@ public class PublicHomeActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationView);
         recyclerCrops = findViewById(R.id.recyclerCrops);
+        toolbar = findViewById(R.id.toolbar);
+
+        // 🔥 Set toolbar
+        setSupportActionBar(toolbar);
+
+        // 🔥 Add hamburger toggle
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this,
+                drawerLayout,
+                toolbar,
+                R.string.open_drawer,
+                R.string.close_drawer
+        );
+
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
         recyclerCrops.setLayoutManager(new LinearLayoutManager(this));
         cropList = new ArrayList<>();
@@ -54,14 +70,11 @@ public class PublicHomeActivity extends AppCompatActivity {
 
             if (id == R.id.menu_home) {
                 drawerLayout.closeDrawers();
-            }
-            else if (id == R.id.menu_about) {
+            } else if (id == R.id.menu_about) {
                 startActivity(new Intent(this, AboutActivity.class));
-            }
-            else if (id == R.id.menu_login) {
+            } else if (id == R.id.menu_login) {
                 startActivity(new Intent(this, LoginActivity.class));
-            }
-            else if (id == R.id.menu_register) {
+            } else if (id == R.id.menu_register) {
                 startActivity(new Intent(this, RegisterChoiceActivity.class));
             }
 
