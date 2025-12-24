@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F8E9">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:text="Admin Dashboard"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1B5E20"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Stats Section -->
+        <TextView
+            android:id="@+id/tvStats"
+            android:text="Platform Statistics"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvTotalCrops"
+            android:text="Total Crops: 0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvTotalEntries"
+            android:text="Total Entries: 0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Approvals -->
+        <Button
+            android:id="@+id/btnApproveUsers"
+            android:text="Approve Users"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button_green"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Manage Entries -->
+        <Button
+            android:id="@+id/btnManageEntries"
+            android:text="Manage Crop Entries"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button_green"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Analytics -->
+        <Button
+            android:id="@+id/btnAnalytics"
+            android:text="View Analytics"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button_green"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Certificates -->
+
+
+        <!-- Logout -->
+        <Button
+            android:id="@+id/btnLogout"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            android:background="#B71C1C"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

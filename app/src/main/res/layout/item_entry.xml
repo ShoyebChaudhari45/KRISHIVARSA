@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Crop -->
+        <TextView
+            android:id="@+id/tvCrop"
+            android:text="Crop: Rice"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Variety / Landrace -->
+        <TextView
+            android:id="@+id/tvVariety"
+            android:text="Variety / Landrace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Contributor -->
+        <TextView
+            android:id="@+id/tvContributor"
+            android:text="Contributor: Farmer / Institution"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Threat Level -->
+        <TextView
+            android:id="@+id/tvThreat"
+            android:text="Threat: Endangered"
+            android:textStyle="bold"
+            android:textColor="#B71C1C"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnApprove"
+                android:text="Approve"
+                android:textColor="#FFFFFF"
+                android:background="#2E7D32"
+                android:layout_marginEnd="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnDelete"
+                android:text="Delete"
+                android:textColor="#FFFFFF"
+                android:background="#B71C1C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

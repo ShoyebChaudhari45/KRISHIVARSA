@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F8E9">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:text="Farmer Registration"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1B5E20"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Name -->
+        <EditText
+            android:id="@+id/etName"
+            android:hint="Full Name"
+            android:padding="12dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Contact -->
+        <EditText
+            android:id="@+id/etContact"
+            android:hint="Contact Number"
+            android:inputType="phone"
+            android:padding="12dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Village -->
+        <EditText
+            android:id="@+id/etVillage"
+            android:hint="Village"
+            android:padding="12dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- District -->
+        <EditText
+            android:id="@+id/etDistrict"
+            android:hint="District"
+            android:padding="12dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- State -->
+        <EditText
+            android:id="@+id/etState"
+            android:hint="State"
+            android:padding="12dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:text="Submit Registration"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button_green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

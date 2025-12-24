@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F8E9">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:text="Institution Registration"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1B5E20"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Institution Name -->
+        <EditText
+            android:id="@+id/etInstitutionName"
+            android:hint="Institution Name"
+            android:padding="12dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Institution Type -->
+        <Spinner
+            android:id="@+id/spInstitutionType"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Contact Person -->
+        <EditText
+            android:id="@+id/etContactPerson"
+            android:hint="Contact Person Name"
+            android:padding="12dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Contact Number -->
+        <EditText
+            android:id="@+id/etContactNumber"
+            android:hint="Contact Number"
+            android:inputType="phone"
+            android:padding="12dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Location -->
+        <EditText
+            android:id="@+id/etLocation"
+            android:hint="Location (City / District / State)"
+            android:padding="12dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:text="Submit Registration"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button_green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

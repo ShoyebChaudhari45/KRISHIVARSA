@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F8E9">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:text="Add Traditional Landrace"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1B5E20"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Crop Name -->
+        <EditText
+            android:id="@+id/etCropName"
+            android:hint="Crop Name (e.g. Rice)"
+            android:padding="12dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Landrace Name -->
+        <EditText
+            android:id="@+id/etLandraceName"
+            android:hint="Landrace Name"
+            android:padding="12dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Location -->
+        <EditText
+            android:id="@+id/etLocation"
+            android:hint="Location (Village / District / State)"
+            android:padding="12dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Special Characteristics -->
+        <EditText
+            android:id="@+id/etCharacteristics"
+            android:hint="Special Characteristics"
+            android:padding="12dp"
+            android:minLines="3"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Threat Level -->
+        <Spinner
+            android:id="@+id/spThreatLevel"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:text="Submit Landrace"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button_green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

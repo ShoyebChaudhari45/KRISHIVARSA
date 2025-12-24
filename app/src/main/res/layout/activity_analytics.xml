@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F8E9">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:text="Platform Analytics"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1B5E20"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Total Crops -->
+        <TextView
+            android:id="@+id/tvTotalCrops"
+            android:text="Total Crops: 0"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Total Varieties -->
+        <TextView
+            android:id="@+id/tvTotalVarieties"
+            android:text="Total Varieties / Landraces: 0"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Threat Level Header -->
+        <TextView
+            android:id="@+id/tvThreatHeader"
+            android:text="Threat Level Distribution"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Critically Endangered -->
+        <TextView
+            android:id="@+id/tvCritical"
+            android:text="Critically Endangered: 0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Endangered -->
+        <TextView
+            android:id="@+id/tvEndangered"
+            android:text="Endangered: 0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Vulnerable -->
+        <TextView
+            android:id="@+id/tvVulnerable"
+            android:text="Vulnerable: 0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>
