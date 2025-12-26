@@ -1,13 +1,15 @@
 package com.example.krishivarsa.network.responses;
 
+import com.example.krishivarsa.models.User;
+
 public class LoginResponse {
 
-    private String message;
+    private boolean success;
     private String token;
     private User user;
 
-    public String getMessage() {
-        return message;
+    public boolean isSuccess() {
+        return success;
     }
 
     public String getToken() {
@@ -16,30 +18,5 @@ public class LoginResponse {
 
     public User getUser() {
         return user;
-    }
-
-    // 🔽 Nested User class
-    public static class User {
-
-        private String id;
-        private String email;
-        private String role;
-        private String status;
-
-        public String getId() {
-            return id;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public String getRole() {
-            return role;
-        }
-
-        public String getStatus() {
-            return status;
-        }
     }
 }

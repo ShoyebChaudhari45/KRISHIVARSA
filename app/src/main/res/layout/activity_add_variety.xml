@@ -1,92 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#F1F8E9">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:orientation="vertical"
-        android:padding="24dp"
+        android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Title -->
-        <TextView
-            android:id="@+id/tvTitle"
-            android:text="Add Hybrid / Improved Variety"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="#1B5E20"
-            android:gravity="center"
-            android:layout_marginBottom="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Crop Name -->
-        <EditText
-            android:id="@+id/etCropName"
-            android:hint="Crop Name"
-            android:padding="12dp"
-            android:background="@drawable/bg_card"
-            android:layout_marginBottom="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Variety Name -->
         <EditText
             android:id="@+id/etVarietyName"
             android:hint="Variety Name"
-            android:padding="12dp"
-            android:background="@drawable/bg_card"
-            android:layout_marginBottom="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- Variety Type -->
-        <Spinner
-            android:id="@+id/spVarietyType"
-            android:layout_marginBottom="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Location -->
         <EditText
-            android:id="@+id/etLocation"
-            android:hint="Location (State / Region)"
-            android:padding="12dp"
-            android:background="@drawable/bg_card"
-            android:layout_marginBottom="12dp"
+            android:id="@+id/etDescription"
+            android:hint="Description"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- Special Characteristics -->
-        <EditText
-            android:id="@+id/etCharacteristics"
-            android:hint="Special Characteristics"
-            android:padding="12dp"
-            android:minLines="3"
-            android:background="@drawable/bg_card"
-            android:layout_marginBottom="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Threat Level -->
         <Spinner
-            android:id="@+id/spThreatLevel"
-            android:layout_marginBottom="20dp"
+            android:id="@+id/spType"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- Submit Button -->
-        <com.google.android.material.button.MaterialButton
-            app:backgroundTint="@null"
+        <Spinner
+            android:id="@+id/spThreat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnImage"
+            android:text="Select Image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
             android:id="@+id/btnSubmit"
             android:text="Submit Variety"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/bg_button_green"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </ScrollView>

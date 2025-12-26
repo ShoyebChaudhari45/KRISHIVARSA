@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:background="#F1F8E9"
@@ -6,22 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Title -->
     <TextView
-        android:id="@+id/tvTitle"
-        android:text="Manage Crop Entries"
+        android:text="Select Crop"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#1B5E20"
-        android:gravity="center"
-        android:layout_marginBottom="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_marginBottom="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
-    <!-- Entries List -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerEntries"
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="match_parent"/>
 </LinearLayout>

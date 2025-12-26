@@ -16,6 +16,7 @@ import com.example.krishivarsa.R;
 import com.example.krishivarsa.activities.admin.AdminDashboardActivity;
 import com.example.krishivarsa.activities.farmer.FarmerDashboardActivity;
 import com.example.krishivarsa.activities.institution.InstitutionDashboardActivity;
+import com.example.krishivarsa.models.User; // ✅ IMPORTANT
 import com.example.krishivarsa.network.ApiClient;
 import com.example.krishivarsa.network.ApiService;
 import com.example.krishivarsa.network.requests.LoginRequest;
@@ -28,12 +29,12 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText etEmail, etPassword;
-    Button btnLogin;
-    TextView tvRegister;
-    ProgressBar progressLogin;
+    private EditText etEmail, etPassword;
+    private Button btnLogin;
+    private TextView tvRegister;
+    private ProgressBar progressLogin;
 
-    SessionManager sessionManager;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
         LoginRequest request = new LoginRequest(email, password);
 
         apiService.login(request).enqueue(new Callback<LoginResponse>() {
+
             @Override
             public void onResponse(Call<LoginResponse> call,
                                    Response<LoginResponse> response) {
@@ -86,34 +88,45 @@ public class LoginActivity extends AppCompatActivity {
                 progressLogin.setVisibility(View.GONE);
                 btnLogin.setEnabled(true);
 
-                if (response.isSuccessful() && response.body() != null) {
-
-                    // 🔒 STATUS CHECK
-                    if (!response.body().getUser().getStatus().equalsIgnoreCase("active")) {
-                        Toast.makeText(
-                                LoginActivity.this,
-                                "Your account is pending admin approval",
-                                Toast.LENGTH_LONG
-                        ).show();
-                        return;
-                    }
-
-                    String token = response.body().getToken();
-                    String role = response.body().getUser().getRole().toUpperCase();
-
-                    sessionManager.saveLogin(token, role);
-
-                    Toast.makeText(LoginActivity.this,
-                            "Login successful",
-                            Toast.LENGTH_SHORT).show();
-
-                    navigateByRole(role);
-
-                } else {
-                    Toast.makeText(LoginActivity.this,
+                if (!response.isSuccessful() || response.body() == null) {
+                    Toast.makeText(
+                            LoginActivity.this,
                             "Invalid email or password",
-                            Toast.LENGTH_SHORT).show();
+                            Toast.LENGTH_SHORT
+                    ).show();
+                    return;
                 }
+
+                LoginResponse loginResponse = response.body();
+
+                if (!loginResponse.isSuccess()) {
+                    Toast.makeText(
+                            LoginActivity.this,
+                            "Login failed",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                    return;
+                }
+
+                User user = loginResponse.getUser();
+
+                // 🔒 ADMIN APPROVAL CHECK
+                if (!user.isApproved()) {
+                    Toast.makeText(
+                            LoginActivity.this,
+                            "Your account is pending admin approval",
+                            Toast.LENGTH_LONG
+                    ).show();
+                    return;
+                }
+
+                // ✅ SAVE SESSION
+                sessionManager.saveLogin(
+                        loginResponse.getToken(),
+                        user.getRole().toUpperCase()
+                );
+
+                navigateByRole(user.getRole().toUpperCase());
             }
 
             @Override
@@ -121,23 +134,33 @@ public class LoginActivity extends AppCompatActivity {
                 progressLogin.setVisibility(View.GONE);
                 btnLogin.setEnabled(true);
 
-                Toast.makeText(LoginActivity.this,
+                Toast.makeText(
+                        LoginActivity.this,
                         "Server error: " + t.getMessage(),
-                        Toast.LENGTH_LONG).show();
+                        Toast.LENGTH_LONG
+                ).show();
             }
         });
     }
 
     private void navigateByRole(String role) {
 
-        if (role.equals("ADMIN")) {
-            startActivity(new Intent(this, AdminDashboardActivity.class));
-        }
-        else if (role.equals("FARMER")) {
-            startActivity(new Intent(this, FarmerDashboardActivity.class));
-        }
-        else if (role.equals("INSTITUTION")) {
-            startActivity(new Intent(this, InstitutionDashboardActivity.class));
+        switch (role) {
+            case "ADMIN":
+                startActivity(new Intent(this, AdminDashboardActivity.class));
+                break;
+
+            case "FARMER":
+                startActivity(new Intent(this, FarmerDashboardActivity.class));
+                break;
+
+            case "INSTITUTION":
+                startActivity(new Intent(this, InstitutionDashboardActivity.class));
+                break;
+
+            default:
+                Toast.makeText(this, "Invalid role", Toast.LENGTH_SHORT).show();
+                return;
         }
 
         finish();

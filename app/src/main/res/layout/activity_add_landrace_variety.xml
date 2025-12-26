@@ -71,6 +71,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <Button
+            android:id="@+id/btnImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Image" />
+
         <!-- Submit Button -->
         <com.google.android.material.button.MaterialButton
         app:backgroundTint="@null"
@@ -79,6 +85,12 @@
             android:textColor="#FFFFFF"
             android:background="@drawable/bg_button_green"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ProgressBar
+            android:id="@+id/progress"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
     </LinearLayout>

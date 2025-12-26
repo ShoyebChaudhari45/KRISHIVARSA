@@ -1,70 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F1F8E9">
 
     <LinearLayout
         android:orientation="vertical"
-        android:padding="24dp"
+        android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Title -->
         <TextView
-            android:id="@+id/tvDashboardTitle"
             android:text="Farmer Dashboard"
             android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="#1B5E20"
-            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvName"
+            android:text="Farmer Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvLocation"
+            android:text="Village, District, State"
+            android:layout_marginBottom="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Total Varieties Submitted"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvTotalVarieties"
+            android:text="0"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
             android:layout_marginBottom="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <!-- Add Landrace -->
-        <com.google.android.material.button.MaterialButton
-            app:backgroundTint="@null"
-            android:id="@+id/btnAddLandrace"
-            android:text="Add Traditional Landrace"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/bg_button_green"
-            android:layout_marginBottom="16dp"
+        <Button
+            android:id="@+id/btnAddVariety"
+            android:text="Add New Variety"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- View Crop Database -->
-        <com.google.android.material.button.MaterialButton
-            app:backgroundTint="@null"
-            android:id="@+id/btnViewCrops"
-            android:text="View Crop Database"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/bg_button_green"
-            android:layout_marginBottom="16dp"
+        <Button
+            android:id="@+id/btnMyVarieties"
+            android:text="My Varieties"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- Profile -->
-        <com.google.android.material.button.MaterialButton
-            app:backgroundTint="@null"
-            android:id="@+id/btnProfile"
-            android:text="My Profile"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/bg_button_green"
-            android:layout_marginBottom="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Logout -->
-        <com.google.android.material.button.MaterialButton
-            app:backgroundTint="@null"
+        <Button
             android:id="@+id/btnLogout"
             android:text="Logout"
             android:textColor="#FFFFFF"
             android:background="#B71C1C"
+            android:layout_marginTop="24dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </ScrollView>

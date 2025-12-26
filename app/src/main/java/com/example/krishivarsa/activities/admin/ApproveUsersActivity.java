@@ -14,6 +14,7 @@ import com.example.krishivarsa.adapters.PendingUserAdapter;
 import com.example.krishivarsa.models.PendingUser;
 import com.example.krishivarsa.network.ApiClient;
 import com.example.krishivarsa.network.ApiService;
+import com.example.krishivarsa.network.responses.PendingUsersResponse;
 import com.example.krishivarsa.utils.SessionManager;
 
 import java.util.List;
@@ -49,41 +50,42 @@ public class ApproveUsersActivity extends AppCompatActivity {
     private void loadPendingUsers() {
 
         apiService.getPendingUsers("Bearer " + sessionManager.getToken())
-                .enqueue(new Callback<List<PendingUser>>() {
+                .enqueue(new Callback<PendingUsersResponse>() {
 
                     @Override
-                    public void onResponse(Call<List<PendingUser>> call,
-                                           Response<List<PendingUser>> response) {
+                    public void onResponse(Call<PendingUsersResponse> call,
+                                           Response<PendingUsersResponse> response) {
 
-                        if (response.isSuccessful() && response.body() != null) {
-
-                            if (response.body().isEmpty()) {
-                                tvEmpty.setVisibility(View.VISIBLE);
-                                recycler.setVisibility(View.GONE);
-                            } else {
-                                tvEmpty.setVisibility(View.GONE);
-                                recycler.setVisibility(View.VISIBLE);
-
-                                recycler.setAdapter(
-                                        new PendingUserAdapter(
-                                                ApproveUsersActivity.this,
-                                                response.body(),
-                                                sessionManager.getToken()
-                                        )
-                                );
-                            }
-
-                        } else {
+                        if (!response.isSuccessful() || response.body() == null) {
                             Toast.makeText(
                                     ApproveUsersActivity.this,
                                     "Failed to load users",
                                     Toast.LENGTH_SHORT
                             ).show();
+                            return;
+                        }
+
+                        List<PendingUser> users = response.body().getUsers();
+
+                        if (users == null || users.isEmpty()) {
+                            tvEmpty.setVisibility(View.VISIBLE);
+                            recycler.setVisibility(View.GONE);
+                        } else {
+                            tvEmpty.setVisibility(View.GONE);
+                            recycler.setVisibility(View.VISIBLE);
+
+                            recycler.setAdapter(
+                                    new PendingUserAdapter(
+                                            ApproveUsersActivity.this,
+                                            users,
+                                            sessionManager.getToken()
+                                    )
+                            );
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<List<PendingUser>> call, Throwable t) {
+                    public void onFailure(Call<PendingUsersResponse> call, Throwable t) {
                         Toast.makeText(
                                 ApproveUsersActivity.this,
                                 "Error: " + t.getMessage(),
@@ -92,4 +94,5 @@ public class ApproveUsersActivity extends AppCompatActivity {
                     }
                 });
     }
+
 }

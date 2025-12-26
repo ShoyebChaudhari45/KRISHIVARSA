@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,7 +14,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KRISHIVARSA">
         <activity
-            android:name=".activities.admin.ManageEntriesActivity"
+            android:name=".activities.farmer.SubmissionSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.admin.AdminPendingVarietiesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.farmer.FarmerManageCropsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.admin.AdminManageCropsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.admin.AdminAddNoticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.admin.AdminAddVarietyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.admin.AdminAddCropActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.farmer.MySubmissionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.admin.AdminManageVarietiesActivity"
             android:exported="false" />
         <activity
             android:name=".activities.admin.ApproveUsersActivity"
@@ -20,14 +46,14 @@
         <activity
             android:name=".activities.admin.AdminDashboardActivity"
             android:exported="false" />
-        <activity
-            android:name=".activities.institution.AddVarietyActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".activities.institution.AddVarietyActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".activities.institution.InstitutionDashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.farmer.AddLandraceActivity"
+            android:name=".activities.farmer.AddLandraceVarietyActivity"
             android:exported="false" />
         <activity
             android:name=".activities.farmer.FarmerDashboardActivity"
@@ -37,6 +63,9 @@
             android:exported="false" />
         <activity
             android:name=".activities.FarmerRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.farmer.AddVarietyActivity"
             android:exported="false" />
         <activity
             android:name=".activities.AboutActivity"

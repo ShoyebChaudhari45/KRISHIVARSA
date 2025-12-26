@@ -20,25 +20,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- Full Name -->
+        <!-- Name -->
         <EditText
             android:id="@+id/etName"
             android:hint="Full Name"
             android:background="@drawable/bg_card"
             android:padding="12dp"
+            android:layout_marginBottom="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Mobile -->
-        <EditText
-            android:id="@+id/etMobile"
-            android:hint="Mobile Number"
-            android:inputType="phone"
-            android:background="@drawable/bg_card"
-            android:padding="12dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
         <!-- Email -->
         <EditText
@@ -47,169 +37,82 @@
             android:inputType="textEmailAddress"
             android:background="@drawable/bg_card"
             android:padding="12dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginBottom="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- Password -->
+        <!-- Password with eye -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="#2E7D32">
+            app:endIconMode="password_toggle">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/etPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:background="@drawable/bg_card"
-                android:padding="12dp" />
-
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Age -->
+        <!-- Mobile -->
         <EditText
-            android:id="@+id/etAge"
-            android:hint="Age"
-            android:inputType="number"
+            android:id="@+id/etMobile"
+            android:hint="Mobile Number"
+            android:inputType="phone"
             android:background="@drawable/bg_card"
             android:padding="12dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- Gender -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gender"
-            android:textStyle="bold"
-            android:textColor="#1B5E20"
-            android:layout_marginTop="12dp" />
-
-        <RadioGroup
-            android:id="@+id/rgGender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rbMale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Male" />
-
-            <RadioButton
-                android:id="@+id/rbFemale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Female" />
-
-            <RadioButton
-                android:id="@+id/rbOther"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Other" />
-
-        </RadioGroup>
-
-        <!-- Village -->
+        <!-- Location -->
         <EditText
             android:id="@+id/etVillage"
             android:hint="Village"
             android:background="@drawable/bg_card"
             android:padding="12dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- District -->
         <EditText
             android:id="@+id/etDistrict"
             android:hint="District"
             android:background="@drawable/bg_card"
             android:padding="12dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- State -->
         <EditText
             android:id="@+id/etState"
             android:hint="State"
             android:background="@drawable/bg_card"
             android:padding="12dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Pincode -->
-        <EditText
-            android:id="@+id/etPincode"
-            android:hint="Pincode"
-            android:inputType="number"
-            android:background="@drawable/bg_card"
-            android:padding="12dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Farming Experience -->
-        <EditText
-            android:id="@+id/etExperience"
-            android:hint="Farming Experience (years)"
-            android:inputType="number"
-            android:background="@drawable/bg_card"
-            android:padding="12dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Land Size -->
-        <EditText
-            android:id="@+id/etLand"
-            android:hint="Land Size (acres)"
-            android:inputType="number"
-            android:background="@drawable/bg_card"
-            android:padding="12dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Crops -->
-        <EditText
-            android:id="@+id/etCrops"
-            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progressRegister"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Crops Grown"
-            android:focusable="false"
-            android:clickable="true"
-            android:background="@drawable/bg_card"
-            android:padding="12dp"
-            android:layout_marginTop="10dp" />
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
 
         <!-- Submit -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSubmit"
-            android:text="Submit Registration"
+            android:text="Register Farmer"
             android:textColor="#FFFFFF"
-            android:background="@drawable/bg_button_green"
-            app:backgroundTint="@null"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <ProgressBar
-            android:id="@+id/progressRegister"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            android:layout_marginTop="16dp" />
+            android:layout_height="wrap_content"
+            app:backgroundTint="#2E7D32"/>
 
     </LinearLayout>
 </ScrollView>

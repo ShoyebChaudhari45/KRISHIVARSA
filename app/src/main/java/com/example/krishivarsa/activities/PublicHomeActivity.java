@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.krishivarsa.R;
 import com.example.krishivarsa.adapters.CropAdapter;
 import com.example.krishivarsa.models.Crop;
+import com.example.krishivarsa.network.responses.GetCropsResponse;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -57,7 +58,7 @@ public class PublicHomeActivity extends AppCompatActivity {
         cropList = new ArrayList<>();
 
         loadDummyCrops();
-        cropAdapter = new CropAdapter(this, cropList);
+        cropAdapter = new CropAdapter((List<GetCropsResponse.Crop>) this, (CropAdapter.OnCropClickListener) cropList);
         recyclerCrops.setAdapter(cropAdapter);
 
         setupDrawerClicks();

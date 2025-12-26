@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F1F8E9">
 
     <LinearLayout
@@ -11,9 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Title -->
         <TextView
-            android:id="@+id/tvTitle"
             android:text="Institution Registration"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -23,74 +20,106 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- Institution Name -->
+        <!-- Name -->
         <EditText
-            android:id="@+id/etInstitutionName"
+            android:id="@+id/etName"
             android:hint="Institution Name"
-            android:padding="12dp"
             android:background="@drawable/bg_card"
+            android:padding="12dp"
             android:layout_marginBottom="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- Institution Type -->
+        <!-- User Type -->
         <Spinner
-            android:id="@+id/spInstitutionType"
+            android:id="@+id/spUserType"
             android:layout_marginBottom="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Contact Person -->
-        <EditText
-            android:id="@+id/etContactPerson"
-            android:hint="Contact Person Name"
-            android:padding="12dp"
-            android:background="@drawable/bg_card"
-            android:layout_marginBottom="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Contact Number -->
-        <EditText
-            android:id="@+id/etContactNumber"
-            android:hint="Contact Number"
-            android:inputType="phone"
-            android:padding="12dp"
-            android:background="@drawable/bg_card"
-            android:layout_marginBottom="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
         <!-- Email -->
         <EditText
             android:id="@+id/etEmail"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:padding="12dp"
             android:background="@drawable/bg_card"
+            android:padding="12dp"
             android:layout_marginBottom="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
+
+        <!-- Password -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:endIconMode="password_toggle">
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:background="@drawable/bg_card"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Mobile -->
+        <EditText
+            android:id="@+id/etMobile"
+            android:hint="Contact Number"
+            android:inputType="phone"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <!-- Location -->
         <EditText
-            android:id="@+id/etLocation"
-            android:hint="Location (City / District / State)"
-            android:padding="12dp"
+            android:id="@+id/etVillage"
+            android:hint="Village / Area"
             android:background="@drawable/bg_card"
-            android:layout_marginBottom="20dp"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- Submit Button -->
-        <com.google.android.material.button.MaterialButton
-            app:backgroundTint="@null"
-            android:id="@+id/btnSubmit"
-            android:text="Submit Registration"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/bg_button_green"
+        <EditText
+            android:id="@+id/etDistrict"
+            android:hint="District"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etState"
+            android:hint="State"
+            android:background="@drawable/bg_card"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progressRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+        <!-- Submit -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubmit"
+            android:text="Register Institution"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backgroundTint="#2E7D32"/>
 
     </LinearLayout>
 </ScrollView>

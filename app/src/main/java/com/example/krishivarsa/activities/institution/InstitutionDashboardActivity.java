@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.krishivarsa.R;
 import com.example.krishivarsa.activities.LoginActivity;
 import com.example.krishivarsa.activities.PublicHomeActivity;
+import com.example.krishivarsa.activities.farmer.AddVarietyActivity;
 import com.example.krishivarsa.utils.SessionManager;
 
 public class InstitutionDashboardActivity extends AppCompatActivity {

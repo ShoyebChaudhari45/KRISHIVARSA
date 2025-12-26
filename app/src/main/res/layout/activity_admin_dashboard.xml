@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F1F8E9">
 
     <LinearLayout
@@ -13,7 +13,6 @@
 
         <!-- Title -->
         <TextView
-            android:id="@+id/tvTitle"
             android:text="Admin Dashboard"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -21,77 +20,104 @@
             android:gravity="center"
             android:layout_marginBottom="24dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- Stats Section -->
+        <!-- Stats -->
         <TextView
-            android:id="@+id/tvStats"
             android:text="Platform Statistics"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#2E7D32"
             android:layout_marginBottom="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/tvTotalCrops"
             android:text="Total Crops: 0"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/tvTotalEntries"
-            android:text="Total Entries: 0"
+            android:text="Total Varieties: 0"
+            android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- Approvals -->
+        <!-- USER MANAGEMENT -->
         <com.google.android.material.button.MaterialButton
-        app:backgroundTint="@null"
             android:id="@+id/btnApproveUsers"
             android:text="Approve Users"
             android:textColor="#FFFFFF"
             android:background="@drawable/bg_button_green"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Manage Entries -->
-        <com.google.android.material.button.MaterialButton
             app:backgroundTint="@null"
-            android:id="@+id/btnManageEntries"
-            android:text="Manage Crop Entries"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- SYSTEM DATA -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddCrop"
+            android:text="Add Crop"
             android:textColor="#FFFFFF"
             android:background="@drawable/bg_button_green"
+            app:backgroundTint="@null"
             android:layout_marginTop="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- Analytics -->
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddVariety"
+            android:text="Add Variety"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button_green"
             app:backgroundTint="@null"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnManageEntries"
+            android:text="Manage Varieties"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button_green"
+            app:backgroundTint="@null"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- NOTICES -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddNotice"
+            android:text="Add Notice"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button_green"
+            app:backgroundTint="@null"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- ANALYTICS -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAnalytics"
             android:text="View Analytics"
             android:textColor="#FFFFFF"
             android:background="@drawable/bg_button_green"
+            app:backgroundTint="@null"
             android:layout_marginTop="12dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <!-- Certificates -->
-
-
-        <!-- Logout -->
+        <!-- LOGOUT -->
         <com.google.android.material.button.MaterialButton
-            app:backgroundTint="@null"
             android:id="@+id/btnLogout"
             android:text="Logout"
             android:textColor="#FFFFFF"
             android:background="#B71C1C"
+            app:backgroundTint="@null"
             android:layout_marginTop="24dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </ScrollView>

@@ -14,6 +14,7 @@ import com.example.krishivarsa.R;
 import com.example.krishivarsa.models.PendingUser;
 import com.example.krishivarsa.network.ApiClient;
 import com.example.krishivarsa.network.ApiService;
+import com.example.krishivarsa.network.responses.GenericResponse;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,18 +24,21 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PendingUserAdapter extends RecyclerView.Adapter<PendingUserAdapter.ViewHolder> {
+public class PendingUserAdapter
+        extends RecyclerView.Adapter<PendingUserAdapter.ViewHolder> {
 
-    Context context;
-    List<PendingUser> list;
-    ApiService apiService;
-    String token;
+    private final Context context;
+    private final List<PendingUser> list;
+    private final ApiService apiService;
+    private final String token;
 
-    public PendingUserAdapter(Context context, List<PendingUser> list, String token) {
+    public PendingUserAdapter(Context context,
+                              List<PendingUser> list,
+                              String token) {
         this.context = context;
         this.list = list;
         this.token = token;
-        apiService = ApiClient.getClient().create(ApiService.class);
+        this.apiService = ApiClient.getClient().create(ApiService.class);
     }
 
     @Override
@@ -49,14 +53,19 @@ public class PendingUserAdapter extends RecyclerView.Adapter<PendingUserAdapter.
 
         PendingUser user = list.get(position);
 
-        holder.tvName.setText(user.profileId.fullName);
+        holder.tvName.setText(user.name);
         holder.tvEmail.setText(user.email);
         holder.tvRole.setText("Role: " + user.role.toUpperCase());
-        holder.tvLocation.setText(
-                user.profileId.address.village + ", " +
-                        user.profileId.address.district + ", " +
-                        user.profileId.address.state
-        );
+
+        if (user.location != null) {
+            holder.tvLocation.setText(
+                    user.location.village + ", " +
+                            user.location.district + ", " +
+                            user.location.state
+            );
+        } else {
+            holder.tvLocation.setText("N/A");
+        }
 
         holder.btnApprove.setOnClickListener(v ->
                 updateStatus(user._id, "approve")
@@ -67,51 +76,59 @@ public class PendingUserAdapter extends RecyclerView.Adapter<PendingUserAdapter.
         );
     }
 
-    // 🔥 SAFE METHOD (NO POSITION USED)
     private void updateStatus(String userId, String action) {
 
         Map<String, String> body = new HashMap<>();
         body.put("action", action);
 
-        apiService.approveOrRejectUser("Bearer " + token, userId, body)
-                .enqueue(new Callback<Void>() {
+        apiService.approveOrRejectUser(
+                "Bearer " + token,
+                userId,
+                body
+        ).enqueue(new Callback<GenericResponse>() {
 
-                    @Override
-                    public void onResponse(Call<Void> call, Response<Void> response) {
+            @Override
+            public void onResponse(Call<GenericResponse> call,
+                                   Response<GenericResponse> response) {
 
-                        if (response.isSuccessful()) {
+                if (response.isSuccessful()) {
 
-                            int indexToRemove = -1;
-
-                            for (int i = 0; i < list.size(); i++) {
-                                if (list.get(i)._id.equals(userId)) {
-                                    indexToRemove = i;
-                                    break;
-                                }
-                            }
-
-                            if (indexToRemove != -1) {
-                                list.remove(indexToRemove);
-                                notifyItemRemoved(indexToRemove);
-                            }
-
-                            Toast.makeText(
-                                    context,
-                                    "User " + action + "d",
-                                    Toast.LENGTH_SHORT
-                            ).show();
+                    int index = -1;
+                    for (int i = 0; i < list.size(); i++) {
+                        if (list.get(i)._id.equals(userId)) {
+                            index = i;
+                            break;
                         }
                     }
 
-                    @Override
-                    public void onFailure(Call<Void> call, Throwable t) {
-                        Toast.makeText(
-                                context,
-                                "Error: " + t.getMessage(),
-                                Toast.LENGTH_LONG
-                        ).show();
+                    if (index != -1) {
+                        list.remove(index);
+                        notifyItemRemoved(index);
                     }
-                });
+
+                    Toast.makeText(
+                            context,
+                            "User " + action + "d successfully",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                } else {
+                    Toast.makeText(
+                            context,
+                            "Action failed",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GenericResponse> call, Throwable t) {
+                Toast.makeText(
+                        context,
+                        "Error: " + t.getMessage(),
+                        Toast.LENGTH_LONG
+                ).show();
+            }
+        });
     }
 
     @Override
